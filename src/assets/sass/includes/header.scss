@@ -1,1 +1,36 @@
-// Header styles here 
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  left: 0;
+  padding: 5px 20px;
+  .header_inner_wrap {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    .logo_wrap {
+      display: block;
+      width: 133px;
+      height: auto;
+    }
+    .hamburger_menu {
+      cursor: pointer;
+      li {
+        display: block;
+        width: 33px;
+        height: 2px;
+        border-radius: 20px;
+        background-color: $color-primary-black;
+        & + li {
+          margin-top: 9px;
+        }
+        &:nth-child(2) {
+          width: 28px;
+          margin-left: auto;
+        }
+      }
+    }
+  }
+}

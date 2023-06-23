@@ -1,0 +1,86 @@
+.portfolio_listing {
+  padding: 80px 0;
+  position: relative;
+  h2 {
+    max-width: 40%;
+    margin-bottom: 180px;
+  }
+  .row {
+    & > div {
+      margin-bottom: 160px;
+      &:nth-of-type(even) {
+        margin-top: -300px;
+        .portfolio_listing_card{
+          margin-left: auto;
+        }
+      }
+      &:nth-of-type(odd) {
+        .portfolio_listing_card{
+          margin-left: 155px;
+        }
+      }
+    }
+  }
+}
+.portfolio_listing_card {
+  width: 565px;
+  display: block;
+  text-decoration: none;
+  .portfolio_image_wrap {
+    height: auto;
+    width: 100%;
+    position: relative;
+    aspect-ratio: 117 /133;
+    overflow: hidden;
+    & > img {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 5;
+      width: 200px;
+      height: auto;
+      transition: 0.5s all ease-in-out;
+      transform: translateX(50px);
+      opacity: 0;
+    }
+    &::after {
+      content: "";
+      inset: 0;
+      background-color: rgba($color: #fff, $alpha: 0.2);
+      z-index: 2;
+      position: absolute;
+      transition: 0.4s all ease-in-out;
+    }
+    figure {
+      width: 100%;
+      height: 100%;
+      img {
+        object-fit: cover;
+      }
+    }
+  }
+  .portfolio_description {
+    padding: 35px 10px 0 45px;
+    h3 {
+      @include fontFace(30px, 1.4, 500, $color-orange);
+      margin-bottom: 10px;
+    }
+    p {
+      @include fontFace(20px, 1.5, 300, $color-secondary-black);
+      max-width: 90%;
+    }
+  }
+  &:hover {
+    @include above($tablet-lg) {
+      .portfolio_image_wrap {
+        & > img {
+          opacity: 1;
+          transform: translateX(0);
+        }
+        &::after {
+          background-color: rgba($color: #000, $alpha: 0.2);
+        }
+      }
+    }
+  }
+}

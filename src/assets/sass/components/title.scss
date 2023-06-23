@@ -1,0 +1,32 @@
+.title_primary {
+  @include fontFace(50px, 1.36, 600, $color-primary-black);
+  text-transform: capitalize;
+  position: relative;
+  width: max-content;
+  margin-bottom: 10px;
+  span {
+    @include fontInherit();
+    color: $color-orange;
+  }
+  svg {
+    position: absolute;
+    left: 90%;
+    z-index: -1;
+    bottom: 20%;
+    width: 80px;
+    height: auto;
+    transition: 0.4s all ease-in-out;
+  }
+  &:hover {
+    svg {
+      @include above($tablet-lg) {
+        transform: scale(1.1) rotate(15deg) translateX(20px);
+      }
+    }
+  }
+}
+.title-secondary {
+  @include fontFace(25px, 1.36, 500, $color-primary-black);
+  max-width: 640px;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,137 @@
+.testimonials {
+  padding: 100px 0;
+  .title_primary {
+    margin-bottom: 50px;
+  }
+  .testimonials_inner_wrap {
+    display: flex;
+    align-items: flex-start;
+    max-width: 55%;
+    margin: auto;
+    position: relative;
+    .slick-dots {
+      position: absolute;
+      bottom: 35px;
+      transform: translateY(50%);
+      right: 0;
+      max-width: calc(100% - 260px);
+      z-index: 1;
+      li {
+        margin: 0 3px;
+        width: auto;
+        height: auto;
+        button {
+          width: 15px;
+          height: 15px;
+          background-color: $color-orange;
+          border-radius: 50%;
+          transition: 0.3s all ease-in-out;
+          &::before {
+            content: none;
+          }
+        }
+        &.slick-active {
+          button {
+            border-radius: 50px;
+            width: 30px;
+          }
+        }
+      }
+    }
+    .blob {
+      background-color: $color-orange;
+      position: absolute;
+      border-radius: 50%;
+      display: block;
+      &:nth-of-type(1) {
+        width: 124px;
+        height: 124px;
+        z-index: -1;
+        top: -25px;
+        left: -80px;
+      }
+      &:nth-of-type(2) {
+        width: 40px;
+        height: 40px;
+        z-index: 1;
+        top: 25px;
+        left: 200px;
+      }
+      &:nth-of-type(3) {
+        width: 67px;
+        height: 67px;
+        z-index: -1;
+        top: 200px;
+        left: -10px;
+      }
+    }
+    .testmony_avatar_slider {
+      width: 260px;
+      height: 260px;
+      flex: 0 0 260px;
+      border-radius: 50%;
+      overflow: hidden;
+      .slick-list {
+        height: 100%;
+        width: 100%;
+      }
+      .avatar {
+        width: 260px;
+        height: 260px;
+        img {
+          object-fit: cover;
+        }
+      }
+    }
+    .testimony_slider {
+      max-width: calc(100% - 260px);
+      padding-left: 50px;
+
+      .t_slide {
+        h4 {
+          @include fontFace(40px, 1.3, 600, $color-orange);
+          margin-bottom: 5px;
+        }
+        p {
+          @include fontFace(18px, 1.3, 300, $color-primary-black);
+        }
+      }
+    }
+    .slick_arrows {
+      position: absolute;
+      width: 72px;
+      height: 74px;
+      border-radius: 50%;
+      background-color: $color-orange;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      right: 0;
+      z-index: 5;
+      bottom: 0;
+      cursor: pointer;
+      border: 2px solid $color-orange;
+      transition: 0.3s all ease-in-out;
+      svg {
+        width: 30px;
+        // transition: 0.3s all ease-in-out;
+        height: auto;
+        path {
+          transition: 0.3s all ease-in-out;
+        }
+      }
+      &.slick_left {
+        right: 100px;
+      }
+      &:hover {
+        @include above($tablet-lg) {
+          background-color: transparent;
+          svg,
+          path {
+            fill: $color-orange;
+          }
+        }
+      }
+    }
+  }
+}

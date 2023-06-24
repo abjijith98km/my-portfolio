@@ -1,4 +1,28 @@
 $(document).ready(function () {
+  $('.hamburger_menu').click(function(){
+    $('body').addClass('hamburger_nav_open')
+  })
+  $('.desktop_menu .close_btn').click(function(){
+    $('body').removeClass('hamburger_nav_open')
+  })
+  $(".testmony_avatar_slider").slick({
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    asNavFor: ".testimony_slider",
+  });
+  $(".testimony_slider").slick({
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    asNavFor: ".testmony_avatar_slider",
+    dots: true,
+    appendDots: $(".testimonials_inner_wrap"),
+    nextArrow: $(".slick_right"),
+    prevArrow: $(".slick_left"),
+  });
   // const cursor = new MouseFollower({
   //   el: null,
   //   container: document.body,

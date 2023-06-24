@@ -1,0 +1,102 @@
+.contact_me {
+  padding: 80px 0;
+  .contact_us_inner {
+    max-width: calc(100% - 300px);
+    margin: 65px auto 0;
+    .row {
+      margin: 0 -60px;
+      & > div {
+        padding: 0 60px;
+      }
+    }
+  }
+  ul {
+    li {
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      & + li {
+        margin-top: 35px;
+      }
+      a {
+        @include fontFace(35px, 1.4, 400, $color-primary-black);
+        text-decoration: none;
+        &:hover {
+          @include above($tablet-lg) {
+            & + svg {
+              animation: shake 0.7s forwards linear;
+            }
+          }
+          @keyframes shake {
+            0%,
+            100% {
+              transform: rotate(0);
+            }
+            20% {
+              transform: rotate(-45deg);
+            }
+            40% {
+              transform: rotate(0deg);
+            }
+            60% {
+              transform: rotate(-45deg);
+            }
+            80% {
+              transform: rotate(0deg);
+            }
+          }
+        }
+      }
+      svg {
+        width: 92px;
+        height: 92px;
+        transition: 0.3s all ease-in-out;
+        margin-right: 25px;
+        fill: $color-orange;
+      }
+    }
+  }
+  .contact_form_wrap {
+    fieldset {
+      padding: 0;
+      width: 100%;
+      & + fieldset {
+        margin-top: 40px;
+      }
+      label {
+        display: none;
+      }
+      input,
+      textarea {
+        resize: none;
+        @include fontFace(27px, 1.5, 400, $color-primary-black);
+        border: 1px solid #707070;
+        border-radius: 5px;
+        padding: 11px 25px;
+        width: 100%;
+        &::placeholder {
+          @include fontFace(27px, 1.5, 400, $color-primary-black);
+        }
+      }
+      input[type="submit"] {
+        background-color: $color-orange;
+        color: $color-white;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        text-align: center;
+        border: 2px solid $color-orange;
+        transition: 0.2s all ease-in-out;
+        &:hover {
+          @include above($tablet-lg) {
+            background-color: $color-white;
+            color: $color-orange;
+          }
+        }
+      }
+      textarea {
+        height: 200px;
+      }
+    }
+  }
+}

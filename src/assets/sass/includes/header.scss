@@ -23,14 +23,204 @@ header {
         height: 2px;
         border-radius: 20px;
         background-color: $color-primary-black;
+        transition: 0.3s all ease-in-out;
+        margin-left: auto;
         & + li {
           margin-top: 9px;
         }
         &:nth-child(2) {
           width: 28px;
-          margin-left: auto;
+        }
+      }
+      &:hover {
+        @include above($tablet-lg) {
+          li {
+            &:nth-child(1),
+            &:nth-child(3) {
+              width: 28px;
+            }
+            &:nth-child(2) {
+              width: 33px;
+            }
+          }
         }
       }
     }
+  }
+}
+.desktop_menu {
+  position: fixed;
+  z-index: 101;
+  background-color: $color-white;
+  padding: 15px 100px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  transform: translateX(100%);
+  transition: 0.5s all ease-in-out;
+  .close_btn {
+    width: 33px;
+    height: 33px;
+    cursor: pointer;
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    transition: 0.2s all ease-in-out;
+    &:hover {
+      @include above($tablet-lg) {
+        transform: scale(0.8);
+        svg {
+          path {
+            fill: $color-orange;
+          }
+        }
+      }
+    }
+    svg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      path {
+        transition: 0.2s all ease-in-out;
+      }
+    }
+  }
+  .social_media_menu {
+    position: absolute;
+    bottom: 20px;
+    left: 100px;
+    display: flex;
+    align-items: center;
+    li {
+      padding: 2px 20px;
+      & + li {
+        border-left: 2px solid $color-primary-black;
+      }
+      a {
+        @include fontFace(19px, 1.1, 600, $color-primary-black);
+        text-decoration: none;
+        text-transform: uppercase;
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          left: 0;
+          top: 100%;
+          height: 2px;
+          background-color: $color-orange;
+          transition: 0.3s transform ease-in-out;
+          transform: scaleX(0);
+          transform-origin: right;
+        }
+        &:hover {
+          @include above($tablet-lg) {
+            color: $color-orange;
+            &::after {
+              transform: scaleX(1);
+              transform-origin: left;
+            }
+          }
+        }
+      }
+    }
+  }
+  h3 {
+    @include fontFace(182px, 1, 900, #d4d4d4);
+    font-style: italic;
+    text-transform: uppercase;
+    position: relative;
+    transition: 0.3s all ease-in-out;
+    img {
+      position: absolute;
+      width: 250px;
+      height: 320px;
+      object-fit: cover;
+      transition: 0.5s all ease-in-out;
+      opacity: 0;
+      transform: rotate(20deg) translateY(-50%);
+      top: 50%;
+      right: 100px;
+      z-index: -1;
+    }
+    &::before {
+      content: '"';
+      position: absolute;
+      font-size: 280px;
+      z-index: -1;
+      top: -50px;
+      left: -75px;
+      color: $color-orange;
+    }
+
+    span {
+      @include fontInherit();
+      transition: 0.5s all ease-in-out;
+      position: relative;
+      &:nth-child(3)::after {
+        content: '"';
+        position: absolute;
+        font-size: 280px;
+        z-index: -1;
+        bottom: -30px;
+        right: -20px;
+        color: $color-orange;
+      }
+      &:hover {
+        @include above($tablet-lg) {
+          color: $color-primary-black;
+          img {
+            transform: rotate(20deg) translateY(-50%);
+            opacity: 1;
+            right: -40px;
+          }
+        }
+      }
+    }
+  }
+  .main_header_menu {
+    padding-left: 100px;
+    li {
+      & + li {
+        margin-top: 25px;
+      }
+      a {
+        display: flex;
+        align-items: center;
+        @include fontFace(70px, 1.3, 900, $color-primary-black);
+        transition: 0.3s all ease-in-out;
+        text-decoration: none;
+        text-transform: uppercase;
+        -webkit-text-stroke: 2px $color-primary-black;
+        position: relative;
+        width: max-content;
+
+        svg {
+          opacity: 0;
+          transition: 0.3s all ease-in-out;
+          width: 90px;
+          height: auto;
+          margin-left: -15px;
+          transform: translate(-30px, 30px);
+        }
+        &:hover {
+          @include above($tablet-lg) {
+            color: $color-white;
+            -webkit-text-stroke-color: $color-orange;
+            svg {
+              opacity: 1;
+              transform: translate(0px, 0px);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.hamburger_nav_open {
+  overflow: hidden;
+  .desktop_menu {
+    transform: translateX(0);
   }
 }

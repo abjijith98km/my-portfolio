@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  flex-flow: column;
   border: 0;
   text-decoration: none;
   text-transform: uppercase;
@@ -35,5 +36,15 @@
     width: 160px;
     height: 160px;
     font-size: 18px;
+  }
+  &.gototop{
+    font-size: 29px;
+    width: 178px;
+    height: 178px;
+    span{
+      font-size: 45px;
+      display: block;
+      margin-top: 10px;
+    }
   }
 }

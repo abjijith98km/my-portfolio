@@ -3,6 +3,73 @@
 }
 .services_list_wrap {
   padding-top: 60px;
+  @include below($mobile-lg) {
+    padding-top: 30px;
+  }
+  .slick-list {
+    padding-left: 30px;
+    // margin: 0 -30px;
+  }
+  .slick_arrows_service {
+    position: absolute;
+    width: 72px;
+    height: 74px;
+    border-radius: 50%;
+    background-color: $color-orange;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    cursor: pointer;
+    border: 2px solid $color-orange;
+    transition: 0.3s all ease-in-out;
+    @include below($tablet-lg) {
+      bottom: -75px;
+    }
+    @include below($mobile-lg) {
+      width: 50px;
+      height: 50px;
+    }
+    svg {
+      width: 30px;
+      height: auto;
+      @include below($mobile-lg) {
+        width: 25px;
+      }
+      path {
+        transition: 0.3s all ease-in-out;
+      }
+    }
+    &.slick-disabled {
+      opacity: 0;
+      pointer-events: none;
+    }
+    &.slick_service_left {
+      left: 00px;
+      transform: translateY(-50%) translateX(-50%);
+      @include below($mobile-lg) {
+        left: 15px;
+      }
+    }
+    &.slick_service_right {
+      right: 0px;
+      transform: translateY(-50%) translateX(50%);
+      @include below($mobile-lg) {
+        right: 15px;
+      }
+    }
+    &:hover {
+      @include above($tablet-lg) {
+        background-color: transparent;
+        svg,
+        path {
+          fill: $color-orange;
+        }
+      }
+    }
+  }
 }
 .service_item {
   display: flex;
@@ -12,10 +79,26 @@
   border-radius: 30px;
   box-shadow: 0 0 10px 1px rgba($color: #000000, $alpha: 0.2);
   margin-bottom: 80px;
+  @include below($tablet-lg) {
+    width: 70vw !important;
+    // margin: 0 30px;
+    margin-left: 50px;
+    flex-flow: column;
+    margin-bottom: 0;
+  }
+  @include below($mobile-lg) {
+    width: 80vw !important;
+    padding: 15px;
+    margin-left: 20px;
+  }
   .service_detail {
     display: flex;
     align-items: flex-start;
     max-width: 75%;
+    @include below($tablet-lg) {
+      flex-direction: column;
+      max-width: 100%;
+    }
     figure {
       width: 291px;
       flex: 0 0 291px;
@@ -25,6 +108,14 @@
       border: 1px solid #666666;
       border-radius: 30px;
       margin-right: 40px;
+      @include below($desktop-lg) {
+        width: 260px;
+        flex: 0 0 260px;
+      }
+      @include below($tablet-lg) {
+        margin-bottom: 20px;
+        width: 100%;
+      }
       img {
         object-fit: cover;
       }
@@ -36,9 +127,19 @@
         &::first-letter {
           color: $color-orange;
         }
+        @include below($mobile-lg) {
+          font-size: 25px;
+        }
       }
       p {
         @include fontFace(20px, 1.5, 300, $color-primary-black);
+        @include below($mobile-lg) {
+          font-size: 15px;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+        }
       }
     }
   }
@@ -52,6 +153,9 @@
     z-index: 1;
     margin-right: 70px;
     transition: 0.3s all ease-in-out;
+    @include below($tablet-lg) {
+      margin-top: 20px;
+    }
     svg {
       transition: 0.3s all ease-in-out;
 
@@ -63,15 +167,22 @@
       left: auto;
       left: 85%;
       transform: translateY(-50%);
+      @include below($mobile-lg) {
+        width: 40px;
+      }
+    }
+    @include below($mobile-lg) {
+      width: 45px;
+      height: 45px;
     }
   }
-  &:hover{
-    @include above($tablet-lg){
-      .goto_service{
+  &:hover {
+    @include above($tablet-lg) {
+      .goto_service {
         width: 184px;
         height: 184px;
         margin-right: 20px;
-        svg{
+        svg {
           right: auto;
           left: 50%;
           transform: translateY(-50%) translateX(-50%);

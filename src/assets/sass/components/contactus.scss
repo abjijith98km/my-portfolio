@@ -3,14 +3,35 @@
   .contact_us_inner {
     max-width: calc(100% - 300px);
     margin: 65px auto 0;
+    @include below($tablet-lg) {
+      max-width: calc(100% - 150px);
+    }
+    @include below($tablet-sm) {
+      max-width: calc(100%);
+    }
+    @include below($mobile-lg) {
+      margin-top: 30px;
+    }
     .row {
       margin: 0 -60px;
+      @include below($tablet-lg) {
+        flex-flow: column-reverse;
+      }
+      @include below($tablet-sm) {
+        margin: 0 -15px;
+      }
       & > div {
         padding: 0 60px;
+        @include below($tablet-sm) {
+          padding: 0 15px;
+        }
       }
     }
   }
   ul {
+    @include below($tablet-lg) {
+      margin-bottom: 40px;
+    }
     li {
       display: flex;
       align-items: center;
@@ -18,10 +39,16 @@
       justify-content: flex-end;
       & + li {
         margin-top: 35px;
+        @include below($mobile-lg) {
+          margin-top: 10px;
+        }
       }
       a {
         @include fontFace(35px, 1.4, 400, $color-primary-black);
         text-decoration: none;
+        @include below($mobile-lg) {
+          font-size: 16px;
+        }
         &:hover {
           @include above($tablet-lg) {
             & + svg {
@@ -51,9 +78,16 @@
       svg {
         width: 92px;
         height: 92px;
+        flex: 0 0 92px;
         transition: 0.3s all ease-in-out;
         margin-right: 25px;
         fill: $color-orange;
+        @include below($mobile-lg) {
+          width: 40px;
+          height: 40px;
+          flex: 0 0 40px;
+          margin-right: 10px;
+        }
       }
     }
   }
@@ -63,6 +97,9 @@
       width: 100%;
       & + fieldset {
         margin-top: 40px;
+        @include below($mobile-lg) {
+          margin-top: 15px;
+        }
       }
       label {
         display: none;
@@ -77,6 +114,12 @@
         width: 100%;
         &::placeholder {
           @include fontFace(27px, 1.5, 400, $color-primary-black);
+          @include below($mobile-lg) {
+            font-size: 18px;
+          }
+        }
+        @include below($mobile-lg) {
+          font-size: 18px;
         }
       }
       input[type="submit"] {

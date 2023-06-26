@@ -5,6 +5,9 @@ header {
   z-index: 100;
   left: 0;
   padding: 5px 20px;
+  @include below($mobile-lg) {
+    padding: 5px 10px;
+  }
   .header_inner_wrap {
     display: flex;
     align-items: center;
@@ -14,6 +17,12 @@ header {
       display: block;
       width: 133px;
       height: auto;
+      @include below($tablet-lg) {
+        width: 180px;
+      }
+      @include below($mobile-lg) {
+        width: 110px;
+      }
     }
     .hamburger_menu {
       cursor: pointer;
@@ -49,6 +58,7 @@ header {
   }
 }
 .desktop_menu {
+  overflow: hidden;
   position: fixed;
   z-index: 101;
   background-color: $color-white;
@@ -59,6 +69,9 @@ header {
   align-items: center;
   transform: translateX(100%);
   transition: 0.5s all ease-in-out;
+  .inner_wrapper {
+    width: 100%;
+  }
   .close_btn {
     width: 33px;
     height: 33px;
@@ -67,6 +80,8 @@ header {
     top: 32px;
     right: 32px;
     transition: 0.2s all ease-in-out;
+    transform: scale(0);
+    display: block;
     &:hover {
       @include above($tablet-lg) {
         transform: scale(0.8);
@@ -92,6 +107,12 @@ header {
     left: 100px;
     display: flex;
     align-items: center;
+    transform: translateY(40px);
+    opacity: 0;
+    transition: 0.5s all ease-in-out;
+    @include below($tablet-lg) {
+      left: 50%;
+    }
     li {
       padding: 2px 20px;
       & + li {
@@ -126,7 +147,62 @@ header {
       }
     }
   }
+  .max_1200 {
+    display: none;
+    @include below($tablet-lg) {
+      display: block;
+      opacity: 0.2;
+      font-size: 50vw;
+      span {
+        transform: translateY(550px);
+      }
+    }
+  }
   h3 {
+    .transform_text {
+      display: block;
+      position: relative;
+      width: max-content;
+      // overflow: hidden;
+      &:nth-child(3)::after {
+        content: '"';
+        position: absolute;
+        font-size: 280px;
+        z-index: -1;
+        bottom: -30px;
+        right: -20px;
+        color: $color-orange;
+        transition: 0.5s all ease-in-out;
+        opacity: 0;
+        transform: translateY(100px);
+        @include below($desktop-lg) {
+          line-height: 0.7;
+        }
+      }
+      &:nth-child(1)::after {
+        content: '"';
+        position: absolute;
+        font-size: 280px;
+        z-index: -1;
+        top: -50px;
+        left: -75px;
+        color: $color-orange;
+        transition: 0.5s all ease-in-out;
+        opacity: 0;
+        transform: translateY(100px);
+      }
+      & > div {
+        display: block;
+        overflow: hidden;
+      }
+      &:hover {
+        img {
+          transform: rotate(20deg) translateY(-50%);
+          opacity: 1;
+          right: -40px;
+        }
+      }
+    }
     @include fontFace(182px, 1, 900, #d4d4d4);
     font-style: italic;
     text-transform: uppercase;
@@ -143,47 +219,53 @@ header {
       top: 50%;
       right: 100px;
       z-index: -1;
+      @include below($desktop-lg) {
+        width: 200px;
+        height: auto;
+        aspect-ratio: 14/16;
+      }
     }
-    &::before {
-      content: '"';
+    @include below($desktop-lg) {
+      font-size: 140px;
+    }
+    @include below($desktop-sm) {
+      font-size: 130px;
+    }
+    @include below($tablet-lg) {
       position: absolute;
-      font-size: 280px;
-      z-index: -1;
-      top: -50px;
-      left: -75px;
-      color: $color-orange;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
-
     span {
       @include fontInherit();
-      transition: 0.5s all ease-in-out;
+      transition: 1s transform ease-in-out, 0.3s color ease-in-out;
       position: relative;
-      &:nth-child(3)::after {
-        content: '"';
-        position: absolute;
-        font-size: 280px;
-        z-index: -1;
-        bottom: -30px;
-        right: -20px;
-        color: $color-orange;
-      }
+      display: block;
+      opacity: 0;
+      transform: translateY(200px);
       &:hover {
         @include above($tablet-lg) {
           color: $color-primary-black;
-          img {
-            transform: rotate(20deg) translateY(-50%);
-            opacity: 1;
-            right: -40px;
-          }
         }
       }
     }
   }
   .main_header_menu {
     padding-left: 100px;
+    @include below($tablet-lg) {
+      padding-left: 0px;
+    }
     li {
+      transition: 0.5s all ease-in-out;
+      opacity: 0;
+      transform: translateY(50px);
+
       & + li {
         margin-top: 25px;
+        @include below($desktop-lg) {
+          margin-top: 5px;
+        }
       }
       a {
         display: flex;
@@ -195,7 +277,9 @@ header {
         -webkit-text-stroke: 2px $color-primary-black;
         position: relative;
         width: max-content;
-
+        @include below($desktop-lg) {
+          font-size: 60px;
+        }
         svg {
           opacity: 0;
           transition: 0.3s all ease-in-out;
@@ -203,6 +287,10 @@ header {
           height: auto;
           margin-left: -15px;
           transform: translate(-30px, 30px);
+          @include below($tablet-lg) {
+            opacity: 1;
+            transform: translate(0px, 0px);
+          }
         }
         &:hover {
           @include above($tablet-lg) {
@@ -217,10 +305,54 @@ header {
       }
     }
   }
+  .row {
+    .col-lg-7 {
+      @include below($tablet-lg) {
+        display: none;
+      }
+    }
+  }
 }
 .hamburger_nav_open {
   overflow: hidden;
+  h3 {
+    .transform_text:nth-child(3)::after,
+    .transform_text:nth-child(1)::after {
+      opacity: 1;
+      transition-delay: 0.5s;
+      transform: translateY(0);
+    }
+    span {
+      transition-delay: 0.5s, 0s;
+      transform: translateY(0) !important;
+      opacity: 1;
+    }
+  }
   .desktop_menu {
     transform: translateX(0);
+    .close_btn {
+      transform: scale(1);
+      transition-delay: 0.6s;
+    }
+  }
+  &.show_desktop_nav_links {
+    li {
+      opacity: 1;
+      transform: translateY(0px);
+
+      @for $i from 1 through 8 {
+        &:nth-child(#{$i}) {
+          transition-delay: #{$i * 0.25}s;
+        }
+      }
+    }
+    .social_media_menu {
+      transform: translateY(0);
+      transition-delay: 0.7s;
+      opacity: 1;
+      @include below($tablet-sm) {
+        transform: translateY(0) translateX(-50%);
+      }
+    }
   }
 }

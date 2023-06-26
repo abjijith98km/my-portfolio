@@ -4,6 +4,10 @@
   position: relative;
   width: max-content;
   margin-bottom: 10px;
+  max-width: 100%;
+  @include below($mobile-lg) {
+    font-size: 35px;
+  }
   span {
     @include fontInherit();
     color: $color-orange;
@@ -16,6 +20,9 @@
     width: 80px;
     height: auto;
     transition: 0.4s all ease-in-out;
+    @include below($mobile-lg) {
+      width: 60px;
+    }
   }
   &:hover {
     svg {
@@ -29,4 +36,7 @@
   @include fontFace(25px, 1.36, 500, $color-primary-black);
   max-width: 640px;
   margin-bottom: 20px;
+  @include below($mobile-lg) {
+    font-size: 18px;
+  }
 }

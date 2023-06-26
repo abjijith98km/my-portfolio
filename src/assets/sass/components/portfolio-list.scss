@@ -1,22 +1,127 @@
 .portfolio_listing {
   padding: 80px 0;
   position: relative;
+  @include below($tablet-sm) {
+    overflow: hidden;
+  }
   h2 {
     max-width: 40%;
     margin-bottom: 180px;
+    @include below($tablet-lg) {
+      max-width: 75%;
+    }
+    @include below($tablet-sm) {
+      margin-bottom: 80px;
+    }
+    @include below($mobile-lg) {
+      max-width: 100%;
+    }
   }
   .row {
+    @include below($tablet-sm) {
+      margin-right: -60px;
+    }
+    @include below($mobile-lg) {
+      margin-right: -15px;
+    }
+    .col-12 {
+      @include below($tablet-sm) {
+        max-width: 70vw;
+        padding: 0 10px;
+      }
+      @include below($mobile-lg) {
+        max-width: 90vw;
+      }
+      &:empty {
+        display: none;
+      }
+      &.last_title_wrap {
+        @include below($tablet-sm) {
+          display: none !important;
+        }
+      }
+    }
+    .slick_arrows_portfolio {
+      position: absolute;
+      width: 74px;
+      height: 74px;
+      border-radius: 50%;
+      background-color: $color-orange;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+      cursor: pointer;
+      border: 2px solid $color-orange;
+      transition: 0.3s all ease-in-out;
+      @include below($tablet-lg) {
+        bottom: -75px;
+      }
+      @include below($mobile-lg) {
+        width: 50px;
+        height: 50px;
+      }
+      svg {
+        width: 30px;
+        height: auto;
+        path {
+          transition: 0.3s all ease-in-out;
+        }
+      }
+      &.slick-disabled {
+        opacity: 0;
+        pointer-events: none;
+      }
+      &.slick_portfolio_left {
+        left: 00px;
+        transform: translateY(-50%) translateX(-50%);
+        @include below($mobile-lg) {
+          left: 30px;
+        }
+      }
+      &.slick_portfolio_right {
+        right: 50px;
+        transform: translateY(-50%) translateX(50%);
+        @include below($mobile-lg) {
+          right: 35px;
+        }
+      }
+      &:hover {
+        @include above($tablet-lg) {
+          background-color: transparent;
+          svg,
+          path {
+            fill: $color-orange;
+          }
+        }
+      }
+    }
     & > div {
       margin-bottom: 160px;
+      @include below($tablet-sm) {
+        max-width: 100vw;
+        margin-bottom: 0px;
+      }
       &:nth-of-type(even) {
         margin-top: -300px;
-        .portfolio_listing_card{
+        @include below($tablet-lg) {
+          margin-top: -150px;
+        }
+        @include below($tablet-sm) {
+          margin-top: 0px;
+        }
+        .portfolio_listing_card {
           margin-left: auto;
         }
       }
       &:nth-of-type(odd) {
-        .portfolio_listing_card{
+        .portfolio_listing_card {
           margin-left: 155px;
+          @include below($tablet-lg) {
+            margin-left: 0;
+          }
         }
       }
     }
@@ -26,12 +131,22 @@
   width: 565px;
   display: block;
   text-decoration: none;
+  @include below($desktop-lg) {
+    width: 460px;
+  }
+  @include below($tablet-lg) {
+    width: 100%;
+  }
+
   .portfolio_image_wrap {
     height: auto;
     width: 100%;
     position: relative;
     aspect-ratio: 117 /133;
     overflow: hidden;
+    @include below($tablet-sm) {
+      max-width: 100%;
+    }
     & > img {
       position: absolute;
       top: 20px;
@@ -61,13 +176,22 @@
   }
   .portfolio_description {
     padding: 35px 10px 0 45px;
+    @include below($mobile-lg) {
+      padding: 15px 10px 0 15px;
+    }
     h3 {
       @include fontFace(30px, 1.4, 500, $color-orange);
       margin-bottom: 10px;
+      @include below($mobile-lg) {
+        font-size: 23px;
+      }
     }
     p {
       @include fontFace(20px, 1.5, 300, $color-secondary-black);
       max-width: 90%;
+      @include below($mobile-lg) {
+        font-size: 16px;
+      }
     }
   }
   &:hover {

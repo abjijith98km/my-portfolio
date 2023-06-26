@@ -15,6 +15,18 @@
   // overflow: hidden;
   position: relative;
   background-color: transparent;
+  flex: 0 0 130px;
+  @include below($desktop-lg) {
+    width: 120px;
+    height: 120px;
+    flex: 0 0 120px;
+  }
+  @include below($mobile-lg) {
+    width: 90px;
+    height: 90px;
+    flex: 0 0 90px;
+    font-size: 12px;
+  }
   &::after {
     content: "";
     position: absolute;
@@ -36,15 +48,33 @@
     width: 160px;
     height: 160px;
     font-size: 18px;
+    @include below($desktop-lg) {
+      width: 130px;
+      height: 130px;
+    }
+    @include below($mobile-lg) {
+      width: 90px;
+      height: 90px;
+      flex: 0 0 90px;
+      font-size: 12px;
+    }
   }
-  &.gototop{
+  &.gototop {
     font-size: 29px;
     width: 178px;
     height: 178px;
-    span{
+    @include below($mobile-lg) {
+      width: 120px;
+      height: 120px;
+      font-size: 18px;
+    }
+    span {
       font-size: 45px;
       display: block;
       margin-top: 10px;
+      @include below($mobile-lg) {
+        font-size: 30px;
+      }
     }
   }
 }

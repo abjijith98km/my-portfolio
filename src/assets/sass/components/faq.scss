@@ -41,7 +41,7 @@
       height: 100%;
       border-radius: 20px;
       overflow: hidden;
-      transform: translate(30px, 30px);
+      transform: translate(20px, 20px);
       @include below($mobile-lg) {
         transform: translate(15px, 15px);
       }
@@ -61,6 +61,7 @@
           padding-right: 0;
           background-color: transparent;
           box-shadow: none;
+          cursor: none;
           @include fontFace(20px, 1.3, 500, $color-primary-black);
           @include below($mobile-lg) {
             font-size: 16px;

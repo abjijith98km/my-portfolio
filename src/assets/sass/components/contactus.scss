@@ -44,6 +44,7 @@
         }
       }
       a {
+        cursor: none;
         @include fontFace(35px, 1.4, 400, $color-primary-black);
         text-decoration: none;
         @include below($mobile-lg) {

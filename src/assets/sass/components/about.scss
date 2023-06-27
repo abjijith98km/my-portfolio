@@ -1,5 +1,5 @@
 .about_me {
-  padding: 80px 0;
+  padding: 120px 0 90px;
   @include below($tablet-lg) {
     overflow: hidden;
   }
@@ -13,8 +13,24 @@
     }
     & > div {
       padding: 0 60px;
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: $color-white;
+        z-index: 2;
+        transition: 1s all cubic-bezier(.19,1,.22,1);
+        transform-origin: right;
+      }
       @include below($tablet-lg) {
         padding: 0 15px;
+      }
+
+      &.is-inview {
+        &::after {
+          transform: scaleX(0);
+        }
       }
     }
   }
@@ -40,6 +56,9 @@
       aspect-ratio: 16/9;
       position: relative;
       margin: auto;
+      // left: 0 !important;
+      // top: 0 !important;
+      // position: static !important;
       @include below($tablet-lg) {
         width: 80%;
       }

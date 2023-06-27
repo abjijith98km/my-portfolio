@@ -1,5 +1,8 @@
 .my_services {
-  padding: 50px 0;
+  padding: 80px 0;
+  @include below($tablet-sm) {
+    padding: 40px 0;
+  }
 }
 .services_list_wrap {
   padding-top: 60px;
@@ -100,8 +103,8 @@
       max-width: 100%;
     }
     figure {
-      width: 291px;
-      flex: 0 0 291px;
+      width: 260px;
+      flex: 0 0 260px;
       height: auto;
       aspect-ratio: 1/1;
       overflow: hidden;

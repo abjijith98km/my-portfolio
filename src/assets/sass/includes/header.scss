@@ -17,6 +17,10 @@ header {
       display: block;
       width: 133px;
       height: auto;
+      // img{
+      //   mix-blend-mode: difference;
+
+      // }
       @include below($tablet-lg) {
         width: 180px;
       }
@@ -71,8 +75,8 @@ header {
   display: flex;
   align-items: center;
   transform: translateX(100%);
-  transition: .6s all ease-in-out;
-  &::before{
+  transition: 0.6s all ease-in-out;
+  &::before {
     position: absolute;
     right: 100%;
     top: 0;
@@ -80,9 +84,9 @@ header {
     width: 300px;
     background-color: $color-orange;
     content: "";
-    transition: .2s all ease-in;
+    transition: 0.2s all ease-in;
     transform: scaleX(0);
-    transform-origin:right ;
+    transform-origin: right;
   }
   @include below($mobile-lg) {
     padding: 15px 30px;
@@ -180,7 +184,7 @@ header {
   .max_1200 {
     display: none;
     @include below($tablet-lg) {
-      display: block;
+      display: none;
       opacity: 0.2;
       font-size: 50vw;
       span {
@@ -224,7 +228,7 @@ header {
         opacity: 0;
         transform: translateY(100px);
       }
-      img{
+      img {
         pointer-events: none;
       }
       & > div {
@@ -278,7 +282,8 @@ header {
     }
     span {
       @include fontInherit();
-      transition: 1.4s transform ease-in-out, 0.3s color ease-in-out, 0.3s opacity ease-in-out;
+      transition: 1.4s transform ease-in-out, 0.3s color ease-in-out,
+        0.3s opacity ease-in-out;
       position: relative;
       display: block;
       opacity: 0;
@@ -362,10 +367,14 @@ header {
 }
 .hamburger_nav_open {
   overflow: hidden;
- 
+  .max_1200 {
+    @include below($tablet-lg) {
+      display: block;
+    }
+  }
   .desktop_menu {
     transform: translateX(0);
-    &::before{
+    &::before {
       transform: scaleX(1);
     }
     .close_btn {
@@ -373,7 +382,7 @@ header {
       transition-delay: 0.6s;
     }
   }
-  &.showf_text{
+  &.showf_text {
     h3 {
       .transform_text:nth-child(3)::after,
       .transform_text:nth-child(1)::after {

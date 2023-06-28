@@ -1,5 +1,8 @@
 .testimonials {
-  padding: 100px 0;
+  padding: 150px 0;
+  @include below($tablet-sm) {
+    padding: 60px 0;
+  }
   .title_primary {
     margin-bottom: 50px;
   }

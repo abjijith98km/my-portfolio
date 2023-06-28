@@ -47,6 +47,9 @@ if (window.screen.width > 1200) {
     //     pin:true
     //   },
     // });
+    $(window).resize(function () {
+      locoScroll.update();
+    });
     $(".portfolio_listing_card").each(function () {
       gsap.from($(this), {
         rotateY: "-90deg",
@@ -60,8 +63,9 @@ if (window.screen.width > 1200) {
     });
     $(".service_item").each(function () {
       gsap.from($(this), {
-        scale: "0",
-        duration: 1.5,
+        x: $(this).index() % 2 == 0 ? 300 : -300,
+        opacity: 0,
+        duration: 1,
         scrollTrigger: {
           trigger: $(this),
           start: "30% 100%",

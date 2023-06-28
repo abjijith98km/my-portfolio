@@ -79,6 +79,7 @@
       position: relative;
       cursor: none;
       margin: 0 40px;
+      transition: .5s transform ease-out;
       @include below($tablet-lg) {
         margin: 0 25px;
       }

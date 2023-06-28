@@ -14,14 +14,18 @@
     & > div {
       padding: 0 60px;
       position: relative;
-      &::after {
+      &.overlay_frame::after {
         content: "";
         position: absolute;
         inset: 0;
         background-color: $color-white;
         z-index: 2;
-        transition: 1s all cubic-bezier(.19,1,.22,1);
+        // transition: 1s all cubic-bezier(.19,1,.22,1);
+        transition: 1s all ease-out;
         transform-origin: right;
+        @include below($tablet-lg) {
+          content: none;
+        }
       }
       @include below($tablet-lg) {
         padding: 0 15px;
@@ -34,6 +38,10 @@
       }
     }
   }
+  img {
+    width: 100%;
+    margin-bottom: 60px;
+  }
   p {
     @include fontFace(20px, 1.8, 300, $color-primary-black);
     span {
@@ -41,7 +49,7 @@
       color: $color-orange;
     }
     @include below($mobile-lg) {
-      font-size: 16px;
+      font-size: 14px;
     }
   }
   .video_player_block {
@@ -56,9 +64,6 @@
       aspect-ratio: 16/9;
       position: relative;
       margin: auto;
-      // left: 0 !important;
-      // top: 0 !important;
-      // position: static !important;
       @include below($tablet-lg) {
         width: 80%;
       }
@@ -69,6 +74,7 @@
         position: relative;
         object-fit: cover;
         z-index: 10;
+        margin: 0;
       }
       .blob {
         position: absolute;
@@ -162,6 +168,45 @@
           height: auto;
           @include below($mobile-lg) {
             width: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+.about_detail {
+  @include below($mobile-lg) {
+    padding-top: 120px;
+  }
+}
+
+.clients_slider_section {
+  padding: 150px 0;
+  overflow: hidden;
+  @include below($tablet-lg) {
+    padding: 60px 0;
+  }
+  .clients_slider {
+    width: 100%;
+    cursor: none;
+    .slide_item {
+      padding: 30px 50px;
+      @include below($tablet-lg) {
+        padding: 20px 30px;
+      }
+      img {
+        // filter: grayscale(1);
+        width: 80%;
+        transition: 0.3s all ease-in-out;
+        height: 90px;
+        @include below($tablet-lg) {
+          height: 100px;
+        }
+      }
+      &:hover {
+        @include above($tablet-lg) {
+          img {
+            // filter: grayscale(0);
           }
         }
       }

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="139" height="139" viewBox="0 0 139 139">
+  <g id="Group_65" data-name="Group 65" transform="translate(-1055 -531)">
+    <circle id="Ellipse_30" data-name="Ellipse 30" cx="69.5" cy="69.5" r="69.5" transform="translate(1055 531)" fill="#ff6f00"/>
+    <g id="Group_84" data-name="Group 84" transform="translate(-1.729 6.259)">
+      <path id="chevron-left" d="M19.807,1.827a1.117,1.117,0,0,1,0,1.581L7.2,16.017,19.807,28.625a1.118,1.118,0,1,1-1.581,1.581l-13.4-13.4a1.117,1.117,0,0,1,0-1.581l13.4-13.4a1.117,1.117,0,0,1,1.581,0Z" transform="translate(1064.501 578.225)" fill="#fff" fill-rule="evenodd"/>
+      <path id="chevron-left-2" data-name="chevron-left" d="M4.827,1.827a1.117,1.117,0,0,0,0,1.581L17.438,16.017,4.827,28.625a1.118,1.118,0,1,0,1.581,1.581l13.4-13.4a1.117,1.117,0,0,0,0-1.581l-13.4-13.4a1.117,1.117,0,0,0-1.581,0Z" transform="translate(1163.323 578.225)" fill="#fff" fill-rule="evenodd"/>
+    </g>
+  </g>
+</svg>

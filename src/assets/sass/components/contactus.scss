@@ -1,5 +1,8 @@
 .contact_me {
-  padding: 80px 0;
+  padding: 160px 0;
+  @include below($tablet-sm) {
+    padding: 60px 0;
+  }
   .contact_us_inner {
     max-width: calc(100% - 300px);
     margin: 65px auto 0;
@@ -28,6 +31,27 @@
       }
     }
   }
+  .social_media_listing {
+    display: flex;
+    // justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 120px;
+    .title-secondary {
+      width: 100%;
+      display: block;
+    }
+    @include below($mobile-lg) {
+      margin-top: 40px;
+    }
+    li {
+      & + li {
+        margin-left: 35px;
+      }
+    }
+    img {
+      width: 50px;
+    }
+  }
   ul {
     @include below($tablet-lg) {
       margin-bottom: 40px;
@@ -38,14 +62,14 @@
       flex-direction: row-reverse;
       justify-content: flex-end;
       & + li {
-        margin-top: 35px;
+        margin-top: 25px;
         @include below($mobile-lg) {
           margin-top: 10px;
         }
       }
       a {
         cursor: none;
-        @include fontFace(35px, 1.4, 400, $color-primary-black);
+        @include fontFace(26px, 1.4, 400, $color-primary-black);
         text-decoration: none;
         @include below($mobile-lg) {
           font-size: 16px;
@@ -77,12 +101,13 @@
         }
       }
       svg {
-        width: 92px;
-        height: 92px;
-        flex: 0 0 92px;
+        width: 60px;
+        height: 60px;
+        flex: 0 0 60px;
         transition: 0.3s all ease-in-out;
         margin-right: 25px;
         fill: $color-orange;
+        path{}
         @include below($mobile-lg) {
           width: 40px;
           height: 40px;
@@ -108,13 +133,13 @@
       input,
       textarea {
         resize: none;
-        @include fontFace(27px, 1.5, 400, $color-primary-black);
+        @include fontFace(22px, 1.5, 400, $color-primary-black);
         border: 1px solid #707070;
         border-radius: 5px;
         padding: 11px 25px;
         width: 100%;
         &::placeholder {
-          @include fontFace(27px, 1.5, 400, $color-primary-black);
+          @include fontFace(22px, 1.5, 400, $color-primary-black);
           @include below($mobile-lg) {
             font-size: 18px;
           }
@@ -123,18 +148,37 @@
           font-size: 18px;
         }
       }
-      input[type="submit"] {
+      input[type="submit"],
+      button[type="submit"] {
         background-color: $color-orange;
         color: $color-white;
         letter-spacing: 3px;
         text-transform: uppercase;
         text-align: center;
-        border: 2px solid $color-orange;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 11px 25px;
+        border: 3px solid $color-orange;
+        width: 100%;
+        @include fontFace(22px, 1.5, 400, $color-white);
         transition: 0.2s all ease-in-out;
+        svg {
+          width: 50px;
+          height: auto;
+          path {
+            fill: $color-white;
+          }
+        }
         &:hover {
           @include above($tablet-lg) {
             background-color: $color-white;
             color: $color-orange;
+            svg {
+              path {
+                fill: $color-orange;
+              }
+            }
           }
         }
       }

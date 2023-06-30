@@ -172,6 +172,9 @@
       @include below($tablet-lg) {
         bottom: -75px;
       }
+      @include below($mobile-lg) {
+        bottom: -45px;
+      }
       svg {
         width: 30px;
         // transition: 0.3s all ease-in-out;

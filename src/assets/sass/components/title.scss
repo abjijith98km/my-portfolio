@@ -36,10 +36,14 @@
   }
 }
 .title-secondary {
-  @include fontFace(25px, 1.36, 500, $color-primary-black);
+  @include fontFace(25px, 1.36, 300, $color-primary-black);
   max-width: 640px;
   margin-bottom: 20px;
   @include below($mobile-lg) {
     font-size: 18px;
+  }
+  span {
+    @include fontInherit();
+    color: $color-orange;
   }
 }

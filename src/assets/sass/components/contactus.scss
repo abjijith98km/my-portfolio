@@ -4,7 +4,7 @@
     padding: 60px 0;
   }
   .contact_us_inner {
-    max-width: calc(100% - 300px);
+    max-width: calc(100% - 200px);
     margin: 65px auto 0;
     @include below($tablet-lg) {
       max-width: calc(100% - 150px);
@@ -16,7 +16,7 @@
       margin-top: 30px;
     }
     .row {
-      margin: 0 -60px;
+      margin: 0 -40px;
       @include below($tablet-lg) {
         flex-flow: column-reverse;
       }
@@ -24,7 +24,7 @@
         margin: 0 -15px;
       }
       & > div {
-        padding: 0 60px;
+        padding: 0 40px;
         @include below($tablet-sm) {
           padding: 0 15px;
         }
@@ -35,7 +35,7 @@
     display: flex;
     // justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 120px;
+    margin-top: 60px;
     .title-secondary {
       width: 100%;
       display: block;
@@ -69,7 +69,7 @@
       }
       a {
         cursor: none;
-        @include fontFace(26px, 1.4, 400, $color-primary-black);
+        @include fontFace(22px, 1.4, 400, $color-primary-black);
         text-decoration: none;
         @include below($mobile-lg) {
           font-size: 16px;
@@ -101,13 +101,14 @@
         }
       }
       svg {
-        width: 60px;
-        height: 60px;
-        flex: 0 0 60px;
+        width: 40px;
+        height: 40px;
+        flex: 0 0 40px;
         transition: 0.3s all ease-in-out;
-        margin-right: 25px;
+        margin-right: 15px;
         fill: $color-orange;
-        path{}
+        path {
+        }
         @include below($mobile-lg) {
           width: 40px;
           height: 40px;
@@ -122,7 +123,7 @@
       padding: 0;
       width: 100%;
       & + fieldset {
-        margin-top: 40px;
+        margin-top: 20px;
         @include below($mobile-lg) {
           margin-top: 15px;
         }

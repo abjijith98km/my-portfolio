@@ -201,6 +201,7 @@ header {
       position: relative;
       width: max-content;
       // overflow: hidden;
+      cursor: none;
       &:nth-child(3)::after {
         content: '"';
         position: absolute;
@@ -280,7 +281,10 @@ header {
     @include below($mobile-lg) {
       font-size: 60vw;
     }
-    span {
+    span,
+    a {
+      text-decoration: none;
+      cursor: none;
       @include fontInherit();
       transition: 1.4s transform ease-in-out, 0.3s color ease-in-out,
         0.3s opacity ease-in-out;
@@ -390,7 +394,8 @@ header {
         transition-delay: 0.7s;
         transform: translateY(0);
       }
-      span {
+      span,
+      a {
         transition-delay: 0.5s, 0s;
         transform: translateY(0) !important;
         opacity: 1;
@@ -414,6 +419,131 @@ header {
       opacity: 1;
       @include below($tablet-lg) {
         transform: translateY(0) translateX(-50%);
+      }
+    }
+  }
+}
+.preloader {
+  position: fixed;
+  z-index: 200;
+  background-color: #eee;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  transition: 0.5s all ease-in-out;
+  transform-origin: top;
+  top: 0;
+  left: 0;
+  align-items: center;
+  .Close_blade {
+    @include fontFace(25px, 1, 500, $color-primary-black);
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    cursor: none;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: 0.3s all ease-in-out;
+    display: flex;
+    align-items: center;
+    svg {
+      width: 45px;
+      height: auto;
+      // margin-left: 5px;
+      path {
+        fill: $color-primary-black;
+      }
+    }
+  }
+  .preloader_inner_wrap {
+    width: max-content;
+    h3 {
+      display: flex;
+      align-items: flex-end;
+      transition: 0.3s all ease-in-out;
+      @include fontFace(60px, 60px, 600, $color-primary-black);
+      span {
+        display: inline-block;
+        @include fontInherit();
+        transition: 1s all ease-in-out;
+        &.animator {
+          width: 9px;
+          height: 9px;
+          border-radius: 50%;
+          flex: 0 0 9px;
+          background-color: $color-orange;
+          transform: scale(400) translateY(0px);
+        }
+      }
+    }
+  }
+}
+.loading {
+  .Close_blade {
+    opacity: 1;
+    transition-delay: 3.5s;
+  }
+  .preloader {
+    .preloader_inner_wrap {
+      h3 {
+        span {
+          &.animator {
+            animation: zoomout 0.7s forwards linear;
+            @keyframes zoomout {
+              0% {
+                transform: scale(400) translateY(0px);
+              }
+              50% {
+                transform: scale(1) translateY(0px);
+              }
+              100% {
+                transform: scale(1) translateY(0px);
+              }
+            }
+          }
+          &.b,
+          &.h,
+          &.i,
+          &.t,
+          &.h {
+            transition-delay: 1.5s;
+            transform: scale(0);
+          }
+          &.a {
+            transform: translateX(95px);
+            transition-delay: 1.6s;
+          }
+          &.j {
+            transition-delay: 1.6s;
+            transform: translateX(0px);
+          }
+          &.k,
+          &.m {
+            transition-delay: 1.6s;
+            transform: translateX(-81px);
+          }
+          &.animator {
+            transition-delay: 1.6s;
+            transform: translateX(-81px) translateY(0px);
+          }
+        }
+      }
+    }
+  }
+}
+.page_loaded {
+  .preloader {
+    .Close_blade {
+      opacity: 0;
+      transition-delay: 0s;
+    }
+    transform: scaleY(0);
+    transition-delay: 0.5s;
+    .preloader_inner_wrap {
+      h3 {
+        transform: scale(0);
       }
     }
   }

@@ -43,7 +43,7 @@
     margin-bottom: 60px;
   }
   p {
-    @include fontFace(20px, 1.8, 300, $color-primary-black);
+    @include fontFace(20px, 1.6, 300, $color-primary-black);
     span {
       @include fontInherit();
       color: $color-orange;
@@ -58,6 +58,7 @@
     @include below($tablet-sm) {
       margin: 50px auto 0;
     }
+
     .thumb_wrap {
       width: 60%;
       height: auto;
@@ -174,6 +175,60 @@
     }
   }
 }
+.video_popup_wrap {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  z-index: 101;
+  background-color: #eee;
+  justify-content: center;
+  align-items: center;
+  transform: scaleY(0);
+  transition: 0.8s transform ease-out;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  transform-origin: top;
+  pointer-events: none;
+  transition-delay: 0.7s;
+
+  .close_btn {
+    position: absolute;
+    z-index: 1;
+    top: 20px;
+    right: 20px;
+    width: 25px;
+    height: 25px;
+    @include below($tablet-lg) {
+      // width: calc(100vw - 30px);
+    }
+  }
+  iframe,
+  video {
+    width: 60vw;
+    height: auto;
+    aspect-ratio: 16/9;
+    transition: 0.4s all ease-in-out;
+    opacity: 0;
+    transform: translateY(-100px);
+    @include below($tablet-lg) {
+      width: calc(100vw - 30px);
+    }
+  }
+}
+.video_popup_open {
+  .video_popup_wrap {
+    transform: scaleY(1);
+    pointer-events: all;
+    transition-delay: 0s;
+    iframe,
+    video {
+      transition-delay: 1s;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
 .about_detail {
   @include below($mobile-lg) {
     padding-top: 120px;
@@ -181,18 +236,19 @@
 }
 
 .clients_slider_section {
-  padding: 150px 0;
+  padding: 100px 0;
   overflow: hidden;
   @include below($tablet-lg) {
     padding: 60px 0;
   }
   .clients_slider {
     width: 100%;
-    cursor: none;
+    // cursor: none;
     .slide_item {
-      padding: 30px 50px;
+      padding: 0px 15px;
+      margin-bottom: 30px;
       @include below($tablet-lg) {
-        padding: 20px 30px;
+        // padding: 20px 30px;
       }
       img {
         // filter: grayscale(1);

@@ -18,7 +18,7 @@
     .row {
       margin: 0 -40px;
       @include below($tablet-lg) {
-        flex-flow: column-reverse;
+        // flex-flow: column-reverse;
       }
       @include below($tablet-sm) {
         margin: 0 -15px;
@@ -133,6 +133,7 @@
       }
       input,
       textarea {
+        background-color: transparent;
         resize: none;
         @include fontFace(22px, 1.5, 400, $color-primary-black);
         border: 1px solid #707070;
@@ -173,7 +174,7 @@
         }
         &:hover {
           @include above($tablet-lg) {
-            background-color: $color-white;
+            background-color: transparent;
             color: $color-orange;
             svg {
               path {

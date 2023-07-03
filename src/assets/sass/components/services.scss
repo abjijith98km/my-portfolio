@@ -6,6 +6,9 @@
 }
 .services_list_wrap {
   padding-top: 60px;
+  @include below($tablet-lg) {
+    margin-bottom: 50px;
+  }
   @include below($mobile-lg) {
     padding-top: 30px;
   }
@@ -195,6 +198,6 @@
     }
   }
 }
-.service_detail_page{
+.service_detail_page {
   padding-top: 150px;
 }

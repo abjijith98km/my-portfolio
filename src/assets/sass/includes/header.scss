@@ -5,6 +5,8 @@ header {
   z-index: 100;
   left: 0;
   padding: 5px 20px;
+  transition: .3s all ease-in-out;
+  background-color: transparent;
   @include below($mobile-lg) {
     padding: 5px 10px;
   }
@@ -17,10 +19,15 @@ header {
       display: block;
       width: 133px;
       height: auto;
-      // img{
-      //   mix-blend-mode: difference;
-
-      // }
+      img {
+        // mix-blend-mode: difference;
+        &.dark_logo {
+          display: none;
+        }
+        &.light_logo {
+          display: block;
+        }
+      }
       @include below($tablet-lg) {
         width: 180px;
       }
@@ -31,32 +38,69 @@ header {
         width: 110px;
       }
     }
-    .hamburger_menu {
-      cursor: none;
-      li {
+    .right_side_nav {
+      display: flex;
+      align-items: center;
+      .theme_selector {
         display: block;
-        width: 33px;
-        height: 2px;
-        border-radius: 20px;
-        background-color: $color-primary-black;
-        transition: 0.3s all ease-in-out;
-        margin-left: auto;
-        & + li {
-          margin-top: 9px;
+        margin-right: 30px;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: $color-white;
+        box-shadow: 0 0 4px 1px rgba($color: #000000, $alpha: 0.1);
+        padding: 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include below($mobile-lg) {
+          margin-right: 15px;
+          width: 25px;
+          height: 25px;
         }
-        &:nth-child(2) {
-          width: 28px;
+        svg {
+          width: 100%;
+          height: auto;
+          path {
+            fill: $color-orange;
+          }
+          &.light_mode {
+            display: block;
+          }
+          &.dark_mode {
+            display: none;
+          }
         }
       }
-      &:hover {
-        @include above($tablet-lg) {
-          li {
-            &:nth-child(1),
-            &:nth-child(3) {
-              width: 28px;
-            }
-            &:nth-child(2) {
-              width: 33px;
+      .hamburger_menu {
+        cursor: none;
+        width: 33px;
+        li {
+          display: block;
+          width: 33px;
+          height: 2px;
+          border-radius: 20px;
+          background-color: $color-primary-black;
+          transition: 0.3s all ease-in-out;
+          margin-left: auto;
+          & + li {
+            margin-top: 9px;
+          }
+          &:nth-child(2) {
+            width: 28px;
+          }
+        }
+        &:hover {
+          @include above($tablet-lg) {
+            li {
+              &:nth-child(1),
+              &:nth-child(3) {
+                width: 28px;
+              }
+              &:nth-child(2) {
+                width: 33px;
+              }
             }
           }
         }
@@ -350,7 +394,7 @@ header {
         }
         &:hover {
           @include above($tablet-lg) {
-            color: $color-white;
+            color: transparent;
             -webkit-text-stroke-color: $color-orange;
             svg {
               opacity: 1;
@@ -546,5 +590,11 @@ header {
         transform: scale(0);
       }
     }
+  }
+}
+
+.header_sticky {
+  header {
+    background-color: $color-white;
   }
 }

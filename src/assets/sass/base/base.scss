@@ -5,6 +5,7 @@ html {
 
 * {
   outline: 0;
+  // transition: .2s all ease-in-out;
   &,
   &:before,
   &:after {
@@ -19,7 +20,9 @@ html {
     border-radius: 50px;
   }
 }
-
+.accordion-item {
+  background-color: transparent;
+}
 a,
 .btn {
   transition: 0.5s all ease-in-out;
@@ -31,6 +34,7 @@ body {
   font-family: $base-font-family;
   width: 100vw;
   height: 100vh;
+  // transition: .3s background-color ease-in-out;
   ::selection {
     background-color: $color-orange;
     color: $color-white;
@@ -137,4 +141,8 @@ main {
   // @media (max-width: $mobile-lg) {
   //   padding-top: 5rem;
   // }
+}
+.c-scrollbar_thumb {
+  background-color: $color-primary-black;
+  opacity: 1;
 }

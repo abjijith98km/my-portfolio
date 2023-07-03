@@ -92,6 +92,7 @@
         text-transform: uppercase;
         margin-bottom: 5px;
         cursor: none;
+        transition: 0.2s color ease-in-out;
         @include below($desktop-lg) {
           font-size: 100px;
         }
@@ -242,7 +243,7 @@
     margin: -200px 0 0 -200px;
   }
 }
-.mf-cursor.-text{
+.mf-cursor.-text {
   text-transform: uppercase;
 }
 .mf-cursor.-text::before {

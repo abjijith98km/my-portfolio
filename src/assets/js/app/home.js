@@ -1,13 +1,34 @@
-// let isFirstTry = localStorage.getItem("FIRST_ENTRY");
+let isFirstTry = localStorage.getItem("FIRST_ENTRY");
 
-// if (isFirstTry) {
-//   $(".preloader").addClass("d-none");
-// }
-// if (isFirstTry == null) {
-//   localStorage.setItem("FIRST_ENTRY", true);
-// }
-
+if (isFirstTry) {
+  $(".preloader").addClass("d-none");
+}
+if (isFirstTry == null) {
+  localStorage.setItem("FIRST_ENTRY", true);
+}
+let sysTheme = localStorage.getItem("THEME");
+if (sysTheme == "DARK") {
+  $("body").addClass("theme_dark");
+}
 $(document).ready(function () {
+  if (window.screen.width < 1200) {
+    $(window).scroll(function () {
+      if (window.scrollY > 20) {
+        $("body").addClass("header_sticky");
+      } else {
+        $("body").removeClass("header_sticky");
+      }
+    });
+  }
+  $(".theme_selector").click(function () {
+    if ($("body").hasClass("theme_dark")) {
+      $("body").removeClass("theme_dark");
+      localStorage.setItem("THEME", "LIGHT");
+    } else {
+      $("body").addClass("theme_dark");
+      localStorage.setItem("THEME", "DARK");
+    }
+  });
   $(".hamburger_menu").click(function () {
     $("body").addClass("hamburger_nav_open");
     setTimeout(() => {

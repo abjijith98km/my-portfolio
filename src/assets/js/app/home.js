@@ -11,6 +11,20 @@ if (sysTheme == "DARK") {
   $("body").addClass("theme_dark");
 }
 $(document).ready(function () {
+  // let bgScore = new Audio("./assets/audio/score2.mp3");
+  // bgScore.volume = 0.1;
+  // bgScore.play();
+  // if(bgScore.ended){
+  //   bgScore.play()
+  // }
+  // $(".desktop_menu .main_header_menu li a").mouseover(function () {
+  //   let hoverInt = new Audio("./assets/audio/hover.wav");
+  //   hoverInt.play();
+  // });
+  // $(".desktop_menu .close_btn").click(function () {
+  //   let closeMenu = new Audio("./assets/audio/close.wav");
+  //   closeMenu.play();
+  // });
   if (window.screen.width < 1200) {
     $(window).scroll(function () {
       if (window.scrollY > 20) {
@@ -30,6 +44,8 @@ $(document).ready(function () {
     }
   });
   $(".hamburger_menu").click(function () {
+    // let accClick = new Audio("./assets/audio/select.wav");
+    // accClick.play();
     $("body").addClass("hamburger_nav_open");
     setTimeout(() => {
       $("body").addClass("showf_text");
@@ -210,8 +226,14 @@ $(document).ready(function () {
         $(this).attr("data-cursor-text", "Close");
       }
     });
+    // $("[data-scroll-to]").click(function () {
+    //   let accClick = new Audio("./assets/audio/swush.wav");
+    //   accClick.play();
+    // });
     $(".accordion-button").click(function () {
       // setTimeout(() => {
+      // let accClick = new Audio("./assets/audio/click2.wav");
+      // accClick.play();
       $(".accordion-button").each(function () {
         if ($(this).hasClass("collapsed")) {
           $(this).attr("data-cursor-text", "open");

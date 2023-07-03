@@ -20,7 +20,7 @@
     }
     span {
       display: block;
-      @include fontFace(256px, 1, 500, #292929);
+      @include fontFace(290px, 1, 500, #292929);
       opacity: 0.04;
       @include below($desktop-lg) {
         font-size: 230px;

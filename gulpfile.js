@@ -5,7 +5,7 @@ const sass = require('gulp-sass');
 const htmlmin = require('gulp-htmlmin');
 const cssmin = require('gulp-cssmin');
 const uglify = require('gulp-uglify-es').default;;
-const imagemin = require('gulp-imagemin');
+// const imagemin = require('gulp-imagemin');
 const concat = require('gulp-concat');
 const jsImport = require('gulp-js-import');
 const sourcemaps = require('gulp-sourcemaps');
@@ -151,27 +151,27 @@ function video() {
 
 function img() {
     return gulp.src('src/assets/img/**/*')
-        .pipe(gulpIf(isProd, imagemin()))
+        // .pipe(gulpIf(isProd, imagemin()))
         .pipe(gulp.dest('dist/assets/img/'));
 }
 
 function uploads() {
   return gulp.src('src/uploads/**/*')
-      .pipe(gulpIf(isProd, imagemin()))
+    //   .pipe(gulpIf(isProd, imagemin()))
       .pipe(gulp.dest('dist/uploads/'));
 }
 
 function img_webp() {
   return gulp.src('src/assets/img/**/*')
     //   .pipe(webp({quality: 100}))
-      .pipe(gulpIf(isProd, imagemin()))
+    //   .pipe(gulpIf(isProd, imagemin()))
       .pipe(gulp.dest('dist/assets/img/'));
 }
 
 function uploads_webp() {
 return gulp.src('src/uploads/**/*')
     // .pipe(webp({quality: 100}))
-    .pipe(gulpIf(isProd, imagemin()))
+    // .pipe(gulpIf(isProd, imagemin()))
     .pipe(gulp.dest('dist/uploads/'));
 }
 

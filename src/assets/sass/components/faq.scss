@@ -90,12 +90,27 @@
         }
       }
       .accordion-body {
+        ul {
+          list-style: disc;
+          padding-left: 30px;
+        }
         @include fontFace(18px, 1.4, 300, $color-primary-black);
         @include below($mobile-lg) {
           font-size: 14px;
         }
-        p {
+        a {
+          color: $color-orange;
+        }
+        p,
+        li,
+        strong,
+        span,
+        a,
+        b {
           @include fontInherit();
+          a {
+            color: $color-orange;
+          }
         }
       }
     }

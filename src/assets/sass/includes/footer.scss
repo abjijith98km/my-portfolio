@@ -118,6 +118,9 @@ footer {
     }
     p {
       font-size: 17px;
+      @include below($mobile-lg) {
+        font-size: 13px;
+      }
     }
     a {
       position: relative;

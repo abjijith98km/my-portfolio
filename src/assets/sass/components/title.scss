@@ -1,6 +1,6 @@
 .title_primary {
   @include fontFace(60px, 1.2, 600, $color-primary-black);
-  text-transform: capitalize;
+  // text-transform: capitalize;
   position: relative;
   width: max-content;
   margin-bottom: 10px;

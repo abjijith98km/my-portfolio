@@ -259,4 +259,8 @@ $(document).ready(function () {
   $(".Close_blade").click(function () {
     $("body").addClass("page_loaded");
   });
+
+  $('.form_success_msg .cta').click(function(){
+    $('form').removeClass('sent')
+  })
 });

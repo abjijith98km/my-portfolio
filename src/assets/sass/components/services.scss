@@ -127,6 +127,7 @@
       max-width: 100%;
     }
     .bdy_cnt {
+
       h4 {
         @include fontFace(40px, 1.2, 600, $color-primary-black);
         margin-bottom: 10px;
@@ -135,6 +136,9 @@
         }
         @include below($mobile-lg) {
           font-size: 25px;
+        }
+        span {
+          @include fontInherit();
         }
       }
       p {

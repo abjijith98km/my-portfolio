@@ -4,6 +4,7 @@
     padding: 60px 0;
   }
   .contact_us_inner {
+    position: relative;
     max-width: calc(100% - 200px);
     margin: 65px auto 0;
     @include below($tablet-lg) {
@@ -13,7 +14,7 @@
       max-width: calc(100%);
     }
     @include below($mobile-lg) {
-      margin-top: 30px;
+      margin-top: 50px;
     }
     .row {
       margin: 0 -40px;
@@ -39,6 +40,7 @@
     .title-secondary {
       width: 100%;
       display: block;
+      min-width: 100%;
     }
     @include below($mobile-lg) {
       margin-top: 40px;
@@ -46,10 +48,16 @@
     li {
       & + li {
         margin-left: 35px;
+        @include below($mobile-lg) {
+          margin-left: 25px;
+        }
       }
     }
     img {
       width: 50px;
+      @include below($mobile-lg) {
+        width: 40px;
+      }
     }
   }
   ul {
@@ -119,6 +127,42 @@
     }
   }
   .contact_form_wrap {
+    position: relative;
+    .form_success_msg {
+      background-color: #181818;
+      position: absolute;
+      transition: 0.4s all ease-in-out;
+      z-index: 10;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+      align-items: center;
+      transition-delay: 0.4s;
+      height: 0;
+      .success_msg_wrap {
+        opacity: 0;
+        transition: 0.3s all ease-in-out;
+        h4 {
+          @include fontFace(20px, 1.3, 400, $color-white);
+          text-align: center;
+          max-width: 70%;
+          margin: 0 auto 40px;
+          span {
+            @include fontInherit();
+            color: $color-orange;
+            font-size: 25px;
+            font-weight: 500;
+          }
+        }
+        .cta {
+          margin: auto;
+        }
+      }
+    }
+    @include below($mobile-lg) {
+      margin-top: 30px;
+    }
     fieldset {
       padding: 0;
       width: 100%;
@@ -148,6 +192,32 @@
         }
         @include below($mobile-lg) {
           font-size: 18px;
+          padding: 11px 18px;
+        }
+      }
+      .send_btn_wrap {
+        position: relative;
+        svg {
+          position: absolute;
+          z-index: 2;
+          display: block;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 25px;
+          width: 40px;
+          height: auto;
+          path {
+            fill: $color-white;
+          }
+        }
+        &:hover {
+          @include above($tablet-lg) {
+            svg {
+              path {
+                fill: $color-orange;
+              }
+            }
+          }
         }
       }
       input[type="submit"],
@@ -189,4 +259,17 @@
       }
     }
   }
+}
+
+.contact_me .contact_form_wrap form.sent .form_success_msg {
+  height: 100%;
+  transition-delay: 0s;
+  pointer-events: all;
+  .success_msg_wrap {
+    opacity: 1;
+    transition-delay: 0.7s;
+  }
+}
+.wpcf7-response-output {
+  display: none !important;
 }

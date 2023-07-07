@@ -87,7 +87,11 @@ if (window.screen.width > 1200) {
     });
   }
 
-
+  $('form input[type="submit"]').click(function () {
+    setTimeout(() => {
+      locoScroll.update();
+    }, 1500);
+  });
 
   // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll.
   ScrollTrigger.addEventListener("refresh", () => locoScroll.update());

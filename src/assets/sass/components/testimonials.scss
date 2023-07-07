@@ -69,6 +69,7 @@
         left: -80px;
         @include below($mobile-lg) {
           left: 10px;
+          top: -8px;
         }
       }
       &:nth-of-type(2) {
@@ -82,6 +83,7 @@
         }
         @include below($mobile-lg) {
           left: 240px;
+          top: 50px;
         }
       }
       &:nth-of-type(3) {
@@ -95,6 +97,7 @@
         }
         @include below($mobile-lg) {
           left: 80px;
+          top: 200px;
         }
       }
     }
@@ -110,7 +113,7 @@
         flex: 0 0 200px;
       }
       @include below($mobile-lg) {
-        margin: 0 auto 20px;
+        margin: 40px auto 20px;
       }
       .slick-list {
         height: 100%;

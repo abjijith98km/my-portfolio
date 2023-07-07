@@ -1,11 +1,11 @@
 .service_detail_block {
-  padding: 100px 0;
+  padding: 80px 0 90px;
   .portfolio_detail_f_img {
     width: 100%;
     height: calc(100vh - 100px);
     position: relative;
     margin-bottom: 50px;
-    @include below($tablet-lg){
+    @include below($tablet-lg) {
       height: auto;
       aspect-ratio: 16/10;
     }
@@ -24,30 +24,30 @@
       z-index: 2;
       left: 60px;
       bottom: 80px;
-      @include below($tablet-sm){
+      @include below($tablet-sm) {
         bottom: 50px;
       }
-      @include below($mobile-lg){
+      @include below($mobile-lg) {
         bottom: 20px;
-        left: 15px
+        left: 15px;
       }
       h1 {
         @include fontFace(95px, 1.2, 600, $color-white);
         margin-bottom: 0;
-        @include below($tablet-lg){
+        @include below($tablet-lg) {
           font-size: 60px;
         }
-        @include below($mobile-lg){
-         font-size: 35px;
+        @include below($mobile-lg) {
+          font-size: 35px;
         }
       }
       img {
         width: 260px;
         margin-bottom: 20px;
-        @include below($tablet-lg){
+        @include below($tablet-lg) {
           width: 200px;
         }
-        @include below($mobile-lg){
+        @include below($mobile-lg) {
           width: 120px;
         }
       }
@@ -75,6 +75,9 @@
     }
   }
   .body_copy {
+    @include below($mobile-lg) {
+      padding: 0;
+    }
     h3 {
       @include fontFace(40px, 1.3, 600, $color-primary-black);
       text-transform: capitalize;

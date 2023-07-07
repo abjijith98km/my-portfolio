@@ -5,7 +5,7 @@ header {
   z-index: 100;
   left: 0;
   padding: 5px 20px;
-  transition: .3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
   background-color: transparent;
   @include below($mobile-lg) {
     padding: 5px 10px;
@@ -492,10 +492,16 @@ header {
     transition: 0.3s all ease-in-out;
     display: flex;
     align-items: center;
+    @include below($mobile-lg) {
+      font-size: 20px;
+    }
     svg {
       width: 45px;
       height: auto;
       // margin-left: 5px;
+      @include below($mobile-lg) {
+        width: 35px;
+      }
       path {
         fill: $color-primary-black;
       }
@@ -508,10 +514,12 @@ header {
       align-items: flex-end;
       transition: 0.3s all ease-in-out;
       @include fontFace(60px, 60px, 600, $color-primary-black);
+      @include below($mobile-lg) {
+        font-size: 50px;
+      }
       span {
         display: inline-block;
         @include fontInherit();
-        transition: 1s all ease-in-out;
         &.animator {
           width: 9px;
           height: 9px;
@@ -533,14 +541,15 @@ header {
     .preloader_inner_wrap {
       h3 {
         span {
+          transition: 0.7s all ease-out;
           &.animator {
-            animation: zoomout 0.7s forwards linear;
+            animation: zoomout 0.7s forwards ease-out;
             @keyframes zoomout {
               0% {
                 transform: scale(400) translateY(0px);
               }
-              50% {
-                transform: scale(1) translateY(0px);
+              30% {
+                transform: scale(100) translateY(0px);
               }
               100% {
                 transform: scale(1) translateY(0px);
@@ -557,19 +566,25 @@ header {
           }
           &.a {
             transform: translateX(95px);
-            transition-delay: 1.6s;
+            transition-delay: 1.7s;
+            @include below($mobile-lg) {
+              transform: translateX(75px);
+            }
           }
           &.j {
-            transition-delay: 1.6s;
+            transition-delay: 1.7s;
             transform: translateX(0px);
           }
           &.k,
           &.m {
-            transition-delay: 1.6s;
+            transition-delay: 1.7s;
             transform: translateX(-81px);
+            @include below($mobile-lg) {
+              transform: translateX(-67px);
+            }
           }
           &.animator {
-            transition-delay: 1.6s;
+            transition-delay: 1.7s;
             transform: translateX(-81px) translateY(0px);
           }
         }

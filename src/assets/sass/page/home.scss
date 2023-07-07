@@ -13,10 +13,10 @@
     position: absolute;
     z-index: -1;
     top: 50%;
-    left: 60px;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
     @include below($tablet-lg) {
-      left: 0px;
+      // left: 0px;
     }
     span {
       display: block;
@@ -30,6 +30,9 @@
       }
       @include below($tablet-lg) {
         font-size: 330px;
+      }
+      @include below($mobile-lg) {
+        font-size: 160px;
       }
       &:nth-of-type(2) {
         opacity: 0.02;

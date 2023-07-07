@@ -1,10 +1,10 @@
 .about_me {
-  padding: 120px 0 90px;
+  padding: 60px 0 90px;
   @include below($tablet-lg) {
     overflow: hidden;
   }
   @include below($mobile-lg) {
-    padding: 40px 0;
+    padding: 80px 0 40px;
   }
   .cta {
     @include below($tablet-sm) {
@@ -48,8 +48,12 @@
     width: 100%;
     margin-bottom: 60px;
   }
-  p {
-    @include fontFace(20px, 1.6, 300, $color-primary-black);
+  p,
+  li,
+  a:not(.cta),
+  span,
+  strong {
+    @include fontFace(18px, 1.6, 300, $color-primary-black);
     span {
       @include fontInherit();
       color: $color-orange;
@@ -58,8 +62,57 @@
       font-size: 15px;
     }
   }
+  h2 {
+    @include fontFace(45px, 1.3, 600, $color-primary-black);
+    text-transform: capitalize;
+    margin-bottom: 25px;
+    @include below($mobile-lg) {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+  }
+  h3 {
+    @include fontFace(40px, 1.3, 600, $color-primary-black);
+    text-transform: capitalize;
+    margin-bottom: 25px;
+    @include below($mobile-lg) {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+  }
+  h4 {
+    @include fontFace(35px, 1.3, 600, $color-primary-black);
+    text-transform: capitalize;
+    margin-bottom: 25px;
+    @include below($mobile-lg) {
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+  }
+  h5 {
+    @include fontFace(30px, 1.3, 600, $color-primary-black);
+    text-transform: capitalize;
+    margin-bottom: 25px;
+    @include below($mobile-lg) {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+  }
+  h6 {
+    @include fontFace(25px, 1.3, 600, $color-primary-black);
+    text-transform: capitalize;
+    margin-bottom: 25px;
+    @include below($mobile-lg) {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+  }
+  span,
+  a:not(.cta) {
+    color: $color-orange;
+  }
   .video_player_block {
-    margin: 150px auto 0;
+    margin: 100px auto 0;
     width: 100%;
     @include below($tablet-sm) {
       margin: 50px auto 0;
@@ -137,8 +190,8 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 87px;
-        height: 87px;
+        width: 75px;
+        height: 75px;
         background-color: $color-white;
         border-radius: 50%;
         display: flex;
@@ -147,8 +200,8 @@
         cursor: pointer;
         animation: shadow 2s infinite linear;
         @include below($mobile-lg) {
-          width: 60px;
-          height: 60px;
+          width: 55px;
+          height: 55px;
         }
         @keyframes shadow {
           0% {
@@ -169,12 +222,12 @@
           }
         }
         svg {
-          width: 24px;
+          width: 20px;
           margin-left: 5px;
           display: block;
           height: auto;
           @include below($mobile-lg) {
-            width: 18px;
+            width: 15px;
           }
         }
       }
@@ -240,8 +293,11 @@
   }
 }
 .about_detail {
+  @include below($tablet-lg) {
+    padding-top: 60px;
+  }
   @include below($mobile-lg) {
-    padding-top: 120px;
+    padding-top: 20px;
   }
 }
 
@@ -254,14 +310,27 @@
   .clients_slider {
     width: 100%;
     // cursor: none;
+    @include below($tablet-lg) {
+      margin-left: 50px;
+    }
+    @include below($tablet-sm) {
+      margin-left: 0px;
+    }
+    @include below($mobile-lg) {
+      width: calc(100% + 12px);
+    }
     .slide_item {
       padding: 0px 15px;
       margin-bottom: 30px;
       @include below($tablet-lg) {
-        // padding: 20px 30px;
+        display: flex;
+        justify-content: center;
+      }
+      @include below($mobile-lg) {
+        justify-content: unset;
+        width: 65vw;
       }
       img {
-        // filter: grayscale(1);
         width: 80%;
         transition: 0.3s all ease-in-out;
         height: 90px;
@@ -276,6 +345,93 @@
           }
         }
       }
+    }
+  }
+}
+.about_banner {
+  width: 100%;
+  position: relative;
+  height: 100vh;
+  padding-top: 85px;
+  @include below($tablet-lg) {
+    padding-top: 120px;
+    height: auto;
+  }
+  @include below($tablet-sm) {
+    padding-top: 100px;
+  }
+  @include below($mobile-lg) {
+    padding-top: 70px;
+  }
+  a {
+    transition: 0s all ease-in-out;
+    cursor: none;
+  }
+  .container-fluid {
+    height: 100%;
+  }
+  img {
+    width: auto;
+    height: 100%;
+    width: 80%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+    @include below($tablet-lg) {
+      width: 100%;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+  }
+  .right_title {
+    position: absolute;
+    right: 0px;
+    padding: 15px;
+    width: 22%;
+    bottom: 220px;
+    @include below($tablet-lg) {
+      position: static;
+      width: 100%;
+      padding: 0;
+    }
+    p {
+      @include fontFace(18px, 1.6, 300, $color-primary-black);
+      span {
+        @include fontInherit();
+        color: $color-orange;
+      }
+      @include below($mobile-lg) {
+        font-size: 15px;
+      }
+    }
+  }
+  .overlay_title {
+    position: absolute;
+    right: 50px;
+    bottom: 0;
+    z-index: -1;
+    font-size: 170px;
+    text-transform: uppercase;
+    -webkit-text-stroke: 2px #fff;
+    @include below($tablet-lg) {
+      font-size: 60px;
+      position: static;
+      text-transform: capitalize;
+    }
+    @include below($mobile-lg) {
+      font-size: 30px;
+      -webkit-text-stroke: 0;
+    }
+    &:nth-child(2) {
+      z-index: 3;
+      -webkit-text-stroke: 2px #fff;
+      color: transparent;
+      @include below($tablet-lg) {
+        display: none;
+      }
+    }
+    span {
+      -webkit-text-stroke: 0;
     }
   }
 }

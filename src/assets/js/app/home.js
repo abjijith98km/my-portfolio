@@ -1,7 +1,12 @@
 let isFirstTry = localStorage.getItem("FIRST_ENTRY");
 
 if (isFirstTry) {
-  $(".preloader").addClass("d-none");
+  // $(".preloader").addClass("d-none");
+  $(".preloader").css({
+    transform: "scaleY(0)",
+    "transition-delay": "0",
+    transition: "1.2s all ease-in-out",
+  });
 }
 if (isFirstTry == null) {
   localStorage.setItem("FIRST_ENTRY", true);
@@ -134,46 +139,45 @@ $(document).ready(function () {
     nextArrow: $(".slick_right"),
     prevArrow: $(".slick_left"),
   });
-  // $(".clients_slider").slick({
-  //   slidesToShow: 3,
-  //   rows: 2,
-  //   // slidesToScroll: 1,
-  //   speed: 700,
-  //   variableWidth: true,
-  //   arrows: false,
-  //   dots: false,
-
-  //   infinite: true,
-  //   cssEase: "ease",
-  //   swipeToSlide: true,
-  //   edgeFriction: 0,
-  //   swipeToSlide: true,
-  //   touchThreshold: 10000,
-  //   responsive: [
-  //     {
-  //       breakpoint: 1200,
-  //       settings: {
-  //         slidesToShow: 3,
-  //         variableWidth: false,
-  //         autoplay: true,
-  //         autoplaySpeed: 2000,
-  //       },
-  //     },
-  //     {
-  //       breakpoint: 767,
-  //       settings: {
-  //         slidesToShow: 2,
-  //       },
-  //     },
-  //     {
-  //       breakpoint: 580,
-  //       settings: {
-  //         slidesToShow: 1,
-  //         variableWidth: false,
-  //       },
-  //     },
-  //   ],
-  // });
+  if (window.screen.width < 1200) {
+    $(".clients_slider").slick({
+      slidesToShow: 2,
+      speed: 700,
+      arrows: false,
+      dots: false,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      infinite: true,
+      cssEase: "ease",
+      swipeToSlide: true,
+      edgeFriction: 0,
+      swipeToSlide: true,
+      touchThreshold: 10000,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 2,
+            variableWidth: false,
+          },
+        },
+        {
+          breakpoint: 767,
+          settings: {
+            slidesToShow: 2,
+          },
+        },
+        {
+          breakpoint: 580,
+          settings: {
+            slidesToShow: 1,
+            variableWidth: true,
+            autoplaySpeed: 1200,
+          },
+        },
+      ],
+    });
+  }
   if (window.screen.width > 1200) {
     const cursor = new MouseFollower({
       el: null,
@@ -260,7 +264,7 @@ $(document).ready(function () {
     $("body").addClass("page_loaded");
   });
 
-  $('.form_success_msg .cta').click(function(){
-    $('form').removeClass('sent')
-  })
+  $(".form_success_msg .cta").click(function () {
+    $("form").removeClass("sent");
+  });
 });

@@ -7,6 +7,47 @@
     }
   }
   .portfolio_fullwidth_slider {
+    .slick-dots {
+      position: static;
+      margin-top: 30px;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      li {
+        width: auto;
+        height: auto;
+        @include below($mobile-lg) {
+          margin: 0 3px;
+        }
+        button {
+          background-color: $color-orange;
+          width: 20px;
+          height: 20px;
+          font-size: 12px;
+          transition: 0.4s all ease-in-out;
+          color: $color-white;
+          font-weight: 500;
+          border-radius: 50%;
+          @include below($mobile-lg) {
+            width: 14px;
+            height: 14px;
+            font-size: 9px;
+          }
+        }
+        &.slick-active {
+          button {
+            width: 30px;
+            height: 30px;
+            font-size: 15px;
+            @include below($mobile-lg) {
+              width: 20px;
+              height: 20px;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
     .slick_arrows_portfolio_grid {
       position: absolute;
       width: 74px;
@@ -79,7 +120,7 @@
       position: relative;
       cursor: none;
       margin: 0 40px;
-      transition: .5s transform ease-out;
+      transition: 0.5s transform ease-out;
       @include below($tablet-lg) {
         margin: 0 25px;
       }
@@ -136,8 +177,8 @@
           }
         }
         h3 {
-          @include fontFace(50px, 1.3, 600, $color-white);
-          margin-bottom: 0px;
+          @include fontFace(40px, 1.3, 600, $color-white);
+          margin-bottom: 5px;
           text-transform: capitalize;
           transition: 0.7s all ease-in-out;
           transform: translateY(70px);
@@ -149,7 +190,7 @@
           }
         }
         p {
-          @include fontFace(20px, 1.4, 300, $color-white);
+          @include fontFace(20px, 1.3, 300, $color-white);
           max-width: 400px;
           transition: 0.7s all ease-in-out;
           transform: translateY(60px);

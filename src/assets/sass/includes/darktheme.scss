@@ -24,7 +24,13 @@
   .desktop_menu .main_header_menu li a:not(:hover) {
     -webkit-text-stroke: 2px $color-white;
   }
-
+  @include below($tablet-lg) {
+    .desktop_menu .main_header_menu li a:not(:hover),
+    .desktop_menu .main_header_menu li a {
+      -webkit-text-stroke: 2px $color-white;
+      color: $color-white;
+    }
+  }
   .custom_hero_banner .background_text span,
   .custom_hero_banner .banner_iner_wrap .banner_cnt p,
   .custom_hero_banner .banner_iner_wrap .banner_cnt h1,
@@ -56,7 +62,9 @@
   .desktop_menu .social_media_menu li a:not(:hover),
   .preloader .preloader_inner_wrap h3,
   .preloader .Close_blade,
-  .about_banner .right_title p {
+  .about_banner .right_title p,
+  .hire_me_block h2,
+  .hire_me_block .hire_footer h5 {
     color: $color-white;
   }
   .contact_me .social_media_listing img {

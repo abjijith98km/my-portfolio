@@ -126,9 +126,11 @@
       }
       &:nth-of-type(odd) {
         .portfolio_listing_card {
-          margin-left: 155px;
+          margin-left: auto;
+          margin-right: 155px;
           @include below($tablet-lg) {
             margin-left: 0;
+            margin-right: 0;
           }
         }
       }
@@ -172,7 +174,7 @@
     &::after {
       content: "";
       inset: 0;
-      background-color: rgba($color: #fff, $alpha: 0.2);
+      background-color: rgba($color: #fff, $alpha: 0);
       z-index: 2;
       position: absolute;
       transition: 0.4s all ease-in-out;

@@ -127,7 +127,6 @@
       max-width: 100%;
     }
     .bdy_cnt {
-
       h4 {
         @include fontFace(40px, 1.2, 600, $color-primary-black);
         margin-bottom: 10px;
@@ -153,6 +152,21 @@
       }
     }
   }
+  &:hover {
+    @include above($tablet-lg) {
+      .goto_service {
+        width: 184px;
+        height: 184px;
+        margin-right: 20px;
+        svg {
+          right: auto;
+          left: 50%;
+          transform: translateY(-50%) translateX(-50%);
+          fill: $color-white;
+        }
+      }
+    }
+  }
   .goto_service {
     display: block;
     width: 73px;
@@ -165,6 +179,10 @@
     transition: 0.3s all ease-in-out;
     @include below($tablet-lg) {
       margin-top: 20px;
+      margin-left: auto;
+    }
+    @include below($mobile-lg) {
+      margin-right: 35px;
     }
     svg {
       transition: 0.3s all ease-in-out;
@@ -185,18 +203,10 @@
       width: 45px;
       height: 45px;
     }
-  }
-  &:hover {
-    @include above($tablet-lg) {
-      .goto_service {
-        width: 184px;
-        height: 184px;
-        margin-right: 20px;
+    &:hover {
+      @include above($tablet-lg) {
         svg {
-          right: auto;
-          left: 50%;
-          transform: translateY(-50%) translateX(-50%);
-          fill: $color-white;
+          transform: translateY(-50%) translateX(-50%) rotate(-45deg);
         }
       }
     }

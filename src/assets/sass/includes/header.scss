@@ -231,6 +231,7 @@ header {
       display: none;
       opacity: 0.2;
       font-size: 50vw;
+      pointer-events: none;
       span {
         transform: translateY(550px);
       }

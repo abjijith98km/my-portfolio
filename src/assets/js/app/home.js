@@ -116,6 +116,7 @@ $(document).ready(function () {
     slidesToScroll: 1,
     variableWidth: true,
     centerMode: true,
+    dots:true,
     speed: 1000,
     nextArrow: `<div class="slick_arrows_portfolio_grid slick_portfolio_grid_right slick-arrow" style="">
     <svg xmlns="http://www.w3.org/2000/svg" width="29.428" height="25.751" viewBox="0 0 29.428 25.751">

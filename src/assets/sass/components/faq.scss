@@ -74,8 +74,14 @@
             margin-left: auto;
             width: 40px;
             height: 40px;
+            flex: 0 0 40px;
             fill: $color-orange;
             transition: 0.3s all ease-in-out;
+            @include below($mobile-lg) {
+              width: 30px;
+              height: 30px;
+              flex: 0 0 30px;
+            }
           }
           span {
             @include fontInherit();

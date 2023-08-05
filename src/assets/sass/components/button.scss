@@ -29,6 +29,11 @@
     font-size: 12px;
     padding: 15px;
   }
+  span {
+    display: block;
+    @include fontInherit();
+    transition: 0.3s all ease-in-out;
+  }
   &::after {
     content: "";
     position: absolute;
@@ -49,10 +54,12 @@
   &.cta_md {
     width: 160px;
     height: 160px;
+    flex: 0 0 160px;
     font-size: 18px;
     @include below($desktop-lg) {
       width: 130px;
       height: 130px;
+      flex: 0 0 130px;
     }
     @include below($mobile-lg) {
       width: 90px;
@@ -76,6 +83,44 @@
       margin-top: 10px;
       @include below($mobile-lg) {
         font-size: 30px;
+      }
+    }
+  }
+  &.new_btn {
+    background-color: $color-orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    &::after {
+      content: none;
+    }
+    svg {
+      transition: 0.3s transform ease-in-out,0.3s opacity ease-in-out;
+      transform: scale(1.2) translate(-40%, -40%);
+      opacity: 0;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      display: block;
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      object-position: center;
+      path {
+        fill: $color-white;
+      }
+    }
+    &:hover {
+      @include above($tablet-lg) {
+        svg {
+          opacity: 1;
+          transform: scale(1) translate(-50%, -50%);
+        }
+        span {
+          opacity: 0;
+          transform: scale(0);
+        }
       }
     }
   }
